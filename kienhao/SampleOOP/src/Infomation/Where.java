@@ -1,15 +1,13 @@
 package Infomation;
 
-public class Where extends Person {
-	private String province;
-	private String country;
+public class Where {
+	protected String province;
+	protected String country;
 	
 	protected Where() {
-		// TODO Auto-generated constructor stub
+		
 	}
 	protected Where(String province, String country) {
-		//super(country, age, weight, height); bao loi cac bien phai chuyen ve static Thay xem dum em
-		super();
 		this.province = province;
 		this.country = country;
 	}
@@ -25,6 +23,8 @@ public class Where extends Person {
 	public void setCountry(String country) {
 		this.country = country;
 	}
-	
+	public void printOut() {
+		System.out.println(province + " "+ country);
+	}
 	
 }

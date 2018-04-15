@@ -2,7 +2,7 @@ package DemoStatic;
 
 public class run {
 	//public int n = 0;
-	public static int m = 0;
+	public static int m = 0; //ko can khoi tao lai
 	
 	public run() {
 		//n++;
