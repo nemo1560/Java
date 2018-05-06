@@ -1,0 +1,19 @@
+Mo ta bai toan:
+Gia su co 1 cong viec la in ra man hinh n lan ki tu x.
+1.in ra man hinh ki tu x.
+2.in ra man hinh so tu nhien tu 1-n.
+
+lam the nao de giai quyet viec:
+displayChar("x") 500 lan 10s
+displayChar("b") 1000 lan 20s
+ displayNumber(100000) 20s
+ 
+ 10 + 20 + 20 => lan luot
+ 
+ => su dung da luong: 20s (max)
+ 
+ Giai phap:
+ 1. Tao ra cac nhiem vu.
+ 2. viet lop ke thua tu Thread (class built-in cua Java)
+ 3. add viec nao Thread de goi thuc hien.
+ 

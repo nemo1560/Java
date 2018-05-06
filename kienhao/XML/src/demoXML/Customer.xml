@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<customers>
+	<customer>
+		<custid>01</custid>
+		<custname>Nguyen Van A</custname>
+		<salary>1000000</salary>
+	</customer>
+	<customer>
+		<custid>02</custid>
+		<custname>Nguyen Van VA</custname>
+		<salary>2000000</salary>
+	</customer>
+	<customer>
+		<custid>03</custid>
+		<custname>Nguyen Van B</custname>
+		<salary>5000000</salary>
+	</customer>
+	<customer>
+		<custid>04</custid>
+		<custname>Nguyen Van C</custname>
+		<salary>1700000</salary>
+	</customer>
+	<customer>
+		<custid>05</custid>
+		<custname>Nguyen Van D</custname>
+		<salary>800000</salary>
+	</customer>
+	<customer>
+		<custid>06</custid>
+		<custname>Nguyen Van E</custname>
+		<salary>1200000</salary>
+	</customer>
+</customers>

@@ -6,5 +6,6 @@
 	<classpathentry kind="src" path="Demo_MVC_Class2"/>
 	<classpathentry kind="src" path="Account"/>
 	<classpathentry kind="src" path="Bank"/>
+	<classpathentry kind="src" path="BankDB"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

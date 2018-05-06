@@ -1,7 +1,9 @@
 
 public class Branch {
 	private String branchName;
-	private Custumer[] listCus;
+	private static final int INITIAL_CAPACITY = 20;
+	private Custumer[] listCus = new Custumer[INITIAL_CAPACITY]; ;
+	
 	public Custumer[] getListCus() {
 		return listCus;
 	}
@@ -10,7 +12,7 @@ public class Branch {
 		this.listCus = listCus;
 	}
 
-	private int vCount=0;
+	private int vCount;
 	
 	public Branch() {
 		// TODO Auto-generated constructor stub
@@ -18,32 +20,27 @@ public class Branch {
 
 	public Branch(String branchName) {
 		this.setBranchName(branchName);
-		listCus = new Custumer[5];
 	}
 	
-	public boolean newCus(String name, double money) {
-		if(findNameCustomer(name).equals(null)){
-			listCus[vCount++] = new Custumer(name,money);
-			return true;
+	public int newCus(String name, double money) {
+			listCus[vCount] = new Custumer(name,money);
+			return vCount;
+	}
+	
+	public void addCusDeposit(String name, double money) {
+		if(findNameCustomer(name)!=-1) {
+			listCus[vCount].addCash(money);  //vCount la vi tri cua user, ko lien quan cash
 		}
-		return false;
 	}
 	
-	public boolean addCusDeposit(String name, double money) {
-		if(!findNameCustomer(name).equals(null)) {
-			new Custumer().addCash(money);
-			return true;
-		}
-		return false;
-	}
-	
-	public Custumer findNameCustomer(String name) {
+	public int findNameCustomer(String name) {
 		for(int i=0;i<listCus.length;i++) {
-			if(name.equals(listCus[i].getCusName())) {
-				return listCus[i];
+			String getDBname = listCus[i].getCusName();
+			if(name == getDBname) {
+				return i;
 			}
 		}
-		return null;
+		return -1;
 	}
 
 	public String getBranchName() {

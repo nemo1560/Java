@@ -8,7 +8,7 @@ public class ModelStudent {
 	private float FindMinMark(StudentArray stdArray) {
 		//Giai thuat tim diem thap nhat
 		float min = stdArray.getArrStudent()[0].getfMark();
-		for(int i = 1;i<stdArray.getArrStudent().length;i++) {
+		for(int i = 0;i<stdArray.getArrStudent().length;i++) {
 			if(stdArray.getArrStudent()[i].getfMark()<min) {
 				min = stdArray.getArrStudent()[i].getfMark();
 			}
@@ -19,7 +19,7 @@ public class ModelStudent {
 	private float FindMaxMark(StudentArray stdArray) {
 		//Giai thuat tim diem cao nhat
 		float max = stdArray.getArrStudent()[0].getfMark();
-		for(int i = 1;i<stdArray.getArrStudent().length;i++) {
+		for(int i = 0;i<stdArray.getArrStudent().length;i++) {
 			if(stdArray.getArrStudent()[i].getfMark()>max) {
 				max = stdArray.getArrStudent()[i].getfMark();
 			}
@@ -42,7 +42,7 @@ public class ModelStudent {
 				vCount++;
 			}
 		}
-		//5 copy 
+		//5 copy  kiem tra lai code
 		System.arraycopy(arrtemp, 0, arrReturn, 0, vCount);
 		
 		return arrReturn;

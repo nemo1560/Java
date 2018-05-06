@@ -1,0 +1,13 @@
+Noi dung:
+	Co mot tap cac sinh vien, moi sinh vien co cac thuoc tinh: id, name, mark.
+
+Yeu cau:
+	Nhap vao n sinh vien vao mang (Arraylist)
+	Hien thi danh sach sinh vien tu mang ra
+	Sap xep tang/giam dan theo mark.
+	hien thi ra ngoai.
+	
+Muc dich
+	Dung collection framework trong java
+	cach su dung cac interface comparable/comparator trong java de co the dung so sanh 2 doi tuong theo tieu chi nao do do user define.
+	Demo ve Lambda Expression

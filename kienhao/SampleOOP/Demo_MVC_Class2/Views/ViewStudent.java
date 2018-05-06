@@ -12,7 +12,7 @@ public class ViewStudent {
 		Student sv2 = new Student(2, "b", 7.4f);
 		Student sv3 = new Student(3, "c", 3.4f);
 		
-		Student[] Std = new Student[13];
+		Student[] Std = new Student[3];
 		Std[0] = sv1;
 		Std[1] = sv2;
 		Std[2] = sv3;
