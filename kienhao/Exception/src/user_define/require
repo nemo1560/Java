@@ -1,0 +1,6 @@
+Lap trinh ung dung bat loi khi nguoi dung nhap tuoi < 18.
+Message: "Ban chua du tuoi nhap ngu"
+
+Cach lam:
+1. Ta dinh nghia ra lop binh thuong => ke thua lop exception.
+2. Dinh nghia lop thu 2 su dung lai (1).
