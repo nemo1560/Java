@@ -9,7 +9,7 @@ public class excutorDemo {
 	private static Worker worker = new Worker(); //static for don't implement new objects
 	
 	public static void main(String[] args) {
-		ExecutorService exc = Executors.newFixedThreadPool(100);
+		ExecutorService exc = Executors.newFixedThreadPool(1000);
 		while(i++<1000) {
 			exc.execute(new addAmount());
 		}

@@ -92,26 +92,45 @@ public class Business {
 	}
 	
 	// function update value in DB
-	public boolean updateValue(String name,String ID, String Class,String Address, String IDnumber) {
+	public boolean updateValue(String ID, String name, String Class, String Address, String IDnumber) {
 		this.objCon = new ConnectDB().getObjCon();
 		String query = "{call updateValue(?,?,?,?,?)}";
 		try {
 			this.rptm = objCon.prepareStatement(query);
-			rptm.setString(1,name );
-			rptm.setString(2, ID);
+			rptm.setString(1,ID);
+			rptm.setString(2, name);
 			rptm.setString(3, Class);
 			rptm.setString(4, Address);
 			rptm.setString(5, IDnumber);
 			rptm.execute();
 			rptm.close();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println(e.getMessage());
 			return false;
 		}
 		
 		
 		return true;
+	}
+	
+	//function update again value after update or delete
+	public List<Student> getAgainValue(){
+		arrDataStd = new ArrayList<Student>();
+		this.objCon = new ConnectDB().getObjCon();
+		String query = "{call getAgainValue()}";
+		try {
+			this.rptm = objCon.prepareStatement(query);
+			this.rs = rptm.executeQuery();
+			while(rs.next()) {
+				Student std = new Student(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getString(5), rs.getInt(6));
+				arrDataStd.add(std);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return arrDataStd;
 	}
 
 }

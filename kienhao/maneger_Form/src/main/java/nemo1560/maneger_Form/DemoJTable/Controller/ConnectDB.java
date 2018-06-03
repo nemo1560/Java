@@ -10,7 +10,7 @@ public class ConnectDB {
 		SQLServerDataSource sqlS = new SQLServerDataSource();
 		sqlS.setServerName("127.0.0.1");
 		sqlS.setUser("demo");
-		sqlS.setPassword("kienhaO1");
+		sqlS.setPassword("123abc");
 		sqlS.setDatabaseName("DEMOBANKING");
 		sqlS.setPortNumber(1433);
 		

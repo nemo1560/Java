@@ -32,4 +32,6 @@ public class AddrStudent {
 	public AddrStudent() {
 		// TODO Auto-generated constructor stub
 	}
+	
+	
 }

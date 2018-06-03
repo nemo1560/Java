@@ -6,21 +6,21 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseListener;
 
 import javax.swing.JFrame;
+import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
+import javax.swing.JPopupMenu;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.event.AncestorListener;
 
-import org.w3c.dom.events.MouseEvent;
+import nemo1560.maneger_Form.DemoJTable.Controller.Controller;
+import nemo1560.maneger_Form.DemoJTable.Model.Change;
+import nemo1560.maneger_Form.DemoJTable.Model.Student_static;
 
-import nemo1560.maneger_Form.DemoJTable.Model.Student;
-
-public class tableFrame extends JFrame implements MouseListener {
-	private JPanel search;
+public class tableFrame extends JFrame implements MouseListener, ActionListener {
 	private JScrollPane scrollpane;
 	private JTable tbl;
-	
+	private JPopupMenu popupmenu;
+	private JMenuItem update,delete;
 
 	public tableFrame() {
 		this.setTitle("Danh sach thong tin");
@@ -42,38 +42,80 @@ public class tableFrame extends JFrame implements MouseListener {
 		this.tbl.setModel(new tableModel());
 		this.tbl.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
 		this.tbl.addMouseListener(this);
+		this.tbl.setComponentPopupMenu(popupmenu());
 		return tbl;
 	}
+	
+	public JPopupMenu popupmenu() {
+		this.popupmenu = new JPopupMenu();
+		this.popupmenu.add(getUpdate());
+		this.popupmenu.add(getDelete());
+		return popupmenu;
+	}
 
 
-	public void mousePressed(java.awt.event.MouseEvent arg0) {
-		System.out.println(tbl.getValueAt(tbl.getSelectedRow(), tbl.getSelectedColumn()));
-		int option = JOptionPane.showConfirmDialog(getContentPane(),"Chac chua","Ok",JOptionPane.YES_NO_OPTION,JOptionPane.YES_NO_CANCEL_OPTION);
-		if(option == 0){
-			
-			
+	public JMenuItem getUpdate() {
+		this.update = new JMenuItem("Cap nhat thong tin");
+		this.update.addActionListener(this);
+		this.update.setActionCommand("update");
+		return update;
+	}
+
+	public JMenuItem getDelete() {
+		this.delete = new JMenuItem("Xoa thong tin");
+		this.delete.setActionCommand("delete");
+		this.delete.addActionListener(this);
+		return delete;
+	}
+	
+	//Action when right click in Table
+	public void mousePressed(java.awt.event.MouseEvent e) {
+		popupmenu();
+	}
+
+	//Action of PopupMenu
+	public void actionPerformed(ActionEvent e2) {
+		
+		/*set action for click update*/
+		if(e2.getActionCommand().equals("update")) {
+			Student_static.setStdID(Integer.parseInt(new tableModel().getValueAt(tbl.getSelectedRow(), 0).toString()));
+			Student_static.setStdName(new tableModel().getValueAt(tbl.getSelectedRow(), 1).toString());
+			Student_static.setStdClass(new tableModel().getValueAt(tbl.getSelectedRow(), 2).toString());
+			Student_static.setStdAddress(new tableModel().getValueAt(tbl.getSelectedRow(), 3).toString());
+			Student_static.setStdIDNumber(Integer.parseInt(new tableModel().getValueAt(tbl.getSelectedRow(), 4).toString()));
+			new Change().setRequest(1);
+			new registerFrame().setVisible(true);
 		}
-	}
-
-	public void mouseClicked(java.awt.event.MouseEvent arg0) {
-		// TODO Auto-generated method stub
+		/*set action for click delete*/
+		if(e2.getActionCommand().equals("delete")) {
+			int row = tbl.getSelectedRow();
+			row++;
+			try {
+				new Controller().deleteValue(row);
+				JOptionPane.showMessageDialog(null, "Deleted");
+				new tableFrame().setVisible(false);
+				new tableModel().UpdateTable();
+			} catch (Exception error) {
+				JOptionPane.showMessageDialog(null, error.getMessage());
+			}
+		}
 		
 	}
 
-	public void mouseEntered(java.awt.event.MouseEvent arg0) {
-		// TODO Auto-generated method stub
+	public void mouseClicked(java.awt.event.MouseEvent e0) {
 		
 	}
 
-	public void mouseExited(java.awt.event.MouseEvent arg0) {
-		// TODO Auto-generated method stub
+	public void mouseEntered(java.awt.event.MouseEvent e) {
 		
 	}
 
-	public void mouseReleased(java.awt.event.MouseEvent arg0) {
-		// TODO Auto-generated method stub
+	public void mouseExited(java.awt.event.MouseEvent e) {
 		
 	}
 
+	public void mouseReleased(java.awt.event.MouseEvent e) {
+		
+	}
 
 }

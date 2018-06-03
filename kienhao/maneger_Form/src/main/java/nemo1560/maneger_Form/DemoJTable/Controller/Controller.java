@@ -30,8 +30,8 @@ public class Controller {
 		return done;
 	}
 	
-	public boolean updateValue (String name,String ID, String Class,String Address, String IDnumber) {
-		boolean done = new Business().updateValue(name, ID, Class, Address, IDnumber);
+	public boolean updateValue (String ID, String name, String Class,String Address, String IDnumber) {
+		boolean done = new Business().updateValue(ID, name, Class, Address, IDnumber);
 		if(done) {
 			System.out.println("Done");
 		}
