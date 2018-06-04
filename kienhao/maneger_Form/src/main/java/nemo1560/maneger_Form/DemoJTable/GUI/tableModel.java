@@ -8,6 +8,7 @@ import javax.swing.table.AbstractTableModel;
 import nemo1560.maneger_Form.DemoJTable.Controller.Controller;
 import nemo1560.maneger_Form.DemoJTable.Model.Student;
 
+@SuppressWarnings("serial")
 public class tableModel extends AbstractTableModel {
 	
 	private List<Student> listData;

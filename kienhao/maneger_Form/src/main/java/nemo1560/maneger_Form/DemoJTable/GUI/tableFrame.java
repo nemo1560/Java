@@ -17,6 +17,7 @@ import nemo1560.maneger_Form.DemoJTable.Controller.Controller;
 import nemo1560.maneger_Form.DemoJTable.Model.Change;
 import nemo1560.maneger_Form.DemoJTable.Model.Student_static;
 
+@SuppressWarnings("serial")
 public class tableFrame extends JFrame implements MouseListener, ActionListener {
 	private JScrollPane scrollpane;
 	private JTable tbl;

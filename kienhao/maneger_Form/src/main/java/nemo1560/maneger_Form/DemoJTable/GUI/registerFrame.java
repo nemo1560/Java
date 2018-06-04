@@ -21,6 +21,7 @@ import nemo1560.maneger_Form.DemoJTable.Controller.Controller;
 import nemo1560.maneger_Form.DemoJTable.Model.Change;
 import nemo1560.maneger_Form.DemoJTable.Model.Student_static;
 
+@SuppressWarnings("serial")
 public class registerFrame extends JFrame implements ActionListener {
 	private JPanel Register,forms,btn,Update,forms_Update,btn2;
 	private JLabel StdID,StdName,StdClass,StdAddress,StdIDNumber;
