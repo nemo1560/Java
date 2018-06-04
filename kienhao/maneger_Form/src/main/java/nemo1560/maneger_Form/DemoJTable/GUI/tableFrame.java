@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseListener;
+import java.util.concurrent.TimeUnit;
 
 import javax.swing.JFrame;
 import javax.swing.JMenuItem;
@@ -84,6 +85,7 @@ public class tableFrame extends JFrame implements MouseListener, ActionListener 
 			Student_static.setStdAddress(new tableModel().getValueAt(tbl.getSelectedRow(), 3).toString());
 			Student_static.setStdIDNumber(Integer.parseInt(new tableModel().getValueAt(tbl.getSelectedRow(), 4).toString()));
 			new Change().setRequest(1);
+			this.setVisible(false);
 			new registerFrame().setVisible(true);
 		}
 		/*set action for click delete*/
@@ -93,8 +95,9 @@ public class tableFrame extends JFrame implements MouseListener, ActionListener 
 			try {
 				new Controller().deleteValue(row);
 				JOptionPane.showMessageDialog(null, "Deleted");
-				new tableFrame().setVisible(false);
-				new tableModel().UpdateTable();
+				this.setVisible(false);
+				TimeUnit.MILLISECONDS.sleep(1000);
+				this.setVisible(true);
 			} catch (Exception error) {
 				JOptionPane.showMessageDialog(null, error.getMessage());
 			}

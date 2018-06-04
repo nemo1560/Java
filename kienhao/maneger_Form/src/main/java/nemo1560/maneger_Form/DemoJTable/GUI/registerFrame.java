@@ -131,6 +131,7 @@ public class registerFrame extends JFrame implements ActionListener {
 		return btn_update;
 	}
 	
+	/*root content*/
 	public registerFrame() {
 		this.setSize(300, 320);
 		this.setLocationRelativeTo(null);
@@ -198,7 +199,8 @@ public class registerFrame extends JFrame implements ActionListener {
 		this.forms_Update.add(getTxt_StdAddress());
 		this.forms_Update.add(getStdIDNumber());
 		this.forms_Update.add(getTxt_StdIDNumber());
-		this.btn2.add(getBtn_update(),BorderLayout.CENTER);
+		this.btn2.add(getBtn_back(),BorderLayout.WEST);
+		this.btn2.add(getBtn_update(),BorderLayout.EAST );
 		
 		/*add child panels in root panel*/
 		this.Update.add(forms_Update);
@@ -207,10 +209,12 @@ public class registerFrame extends JFrame implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent e) {
+		/*Action back*/
 		if(e.getActionCommand().equals("btn_back")) {
 			this.setVisible(false);
 		}
 		
+		/*Action insert*/
 		if(e.getActionCommand().equals("btn_submit")) {
 			if(txt_StdName.getText().isEmpty()||txt_StdClass.getText().isEmpty()
 			||txt_StdAddress.getText().isEmpty()||txt_StdIDNumber.getText().isEmpty()) {
@@ -229,7 +233,7 @@ public class registerFrame extends JFrame implements ActionListener {
 				boolean done = new Controller().insertDB(txt_StdName.getText(), txt_StdClass.getText(), txt_StdAddress.getText(),Integer.parseInt(txt_StdIDNumber.getText()));
 				JOptionPane.showMessageDialog(null, "Da ghi nhan");
 				if(done) {
-					txt_StdID.setEditable(true);
+					txt_StdID.setText("");
 					txt_StdName.setText("");
 					txt_StdClass.setText("");
 					txt_StdAddress.setText("");
@@ -238,16 +242,20 @@ public class registerFrame extends JFrame implements ActionListener {
 			}
 		}
 		
+		/*Action search*/
 		if(e.getActionCommand().equals("btn_search")) {
 			new Controller().getAllValue(txt_StdName.getText(), txt_StdID.getText(), txt_StdClass.getText(), txt_StdAddress.getText(), txt_StdIDNumber.getText());
 			JOptionPane.showMessageDialog(null, "Tim duoc");
 			new tableFrame().setVisible(true);
 		}
 		
+		/*Action update*/
 		if(e.getActionCommand().equals("btn_update")) {
-			boolean done = new Controller().updateValue(String.valueOf(Student_static.getStdID()),Student_static.getStdName(), Student_static.getStdClass(), Student_static.getStdAddress(), String.valueOf(Student_static.getStdIDNumber()));
+			boolean done = new Controller().updateValue(txt_StdID.getText(),txt_StdName.getText(), txt_StdClass.getText(), txt_StdAddress.getText(), txt_StdIDNumber.getText());
 			if(done) {
 				JOptionPane.showMessageDialog(null, "Da thay doi");
+				this.setVisible(false);
+				new tableFrame().setVisible(true);
 			}
 		}
 	}
