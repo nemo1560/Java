@@ -59,7 +59,7 @@ public class Client_GUI extends JFrame implements ActionListener, KeyListener {
 	public JTextArea getOut_Txt() {
 		this.out_Txt = new JTextArea();
 		this.out_Txt.setLineWrap(true);
-		this.out_Txt.setEditable(true);
+		this.out_Txt.setEditable(false);
 		return out_Txt;
 	}
 	

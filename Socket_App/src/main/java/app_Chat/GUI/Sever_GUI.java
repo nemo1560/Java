@@ -61,7 +61,7 @@ public class Sever_GUI extends JFrame implements KeyListener, ActionListener {
 	public JTextArea getOut_Txt() {
 		this.out_Txt = new JTextArea();
 		this.out_Txt.setLineWrap(true);
-		this.out_Txt.setEditable(true);
+		this.out_Txt.setEditable(false);
 		return out_Txt;
 	}
 	public JScrollPane getScroll_Out() {
@@ -174,12 +174,13 @@ public class Sever_GUI extends JFrame implements KeyListener, ActionListener {
 		this.srv_Socket = new ServerSocket(9999);
 		this.socket = srv_Socket.accept();
 		System.out.println("Connected");
-		this.out_Txt.setText("Connected");
+		out_Txt.setText("Connected");
 		this.in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 		this.out = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
 		while(true) {
-
-			this.out_Txt.setText(in.readLine());
+			System.out.println(in.readLine());
+			str_Chat += in.readLine() +"\n";
+			out_Txt.setText(str_Chat);
 			
 			if(str_Chat.substring(0, str_Chat.length()).equals("quit")) {
 				in.close();
