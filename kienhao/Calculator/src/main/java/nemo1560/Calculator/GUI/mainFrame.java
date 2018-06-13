@@ -166,13 +166,18 @@ public class mainFrame extends JFrame implements ActionListener{
 		this.reset_btn.setFont(new Font(null, Font.BOLD, 15));
 		return reset_btn;
 	}
-	
+	/* tao action cho cac button */
+	/* Su dung cac ham xu ly chuoi 
+	 *	concat();
+	 * 	substring(); 
+	 * 
+	 * 
+	 * */
 	public void actionPerformed(ActionEvent e) {
 		
 		if(e.getActionCommand().equals("0")) {
 			this.LCD.setText(this.LCD.getText().concat(e.getActionCommand()));
 		}
-		
 		if(e.getActionCommand().equals("1")) {
 			this.LCD.setText(this.LCD.getText().concat(e.getActionCommand()));
 		}
@@ -200,7 +205,6 @@ public class mainFrame extends JFrame implements ActionListener{
 		if(e.getActionCommand().equals("9")) {
 			this.LCD.setText(this.LCD.getText().concat(e.getActionCommand()));
 		}
-		
 		if(e.getActionCommand().equals(".")) {
 			this.LCD.setText(this.LCD.getText().concat(e.getActionCommand()));
 		}
