@@ -8,6 +8,14 @@ public class excutorDemo {
 	private static int i=0;
 	private static Worker worker = new Worker(); //static for don't implement new objects
 	
+	public static class addAmount implements Runnable{ // class in class to implement runable.
+
+		@Override
+		public void run() {
+			worker.setIndex(i);
+		}	
+	}
+	
 	public static void main(String[] args) {
 		ExecutorService exc = Executors.newFixedThreadPool(1000);
 		while(i++<1000) {
@@ -18,13 +26,5 @@ public class excutorDemo {
 		}
 		System.out.println(worker.getIndex());
 	}
-	public static class addAmount implements Runnable{ // class in class to implement runable.
 
-		@Override
-		public void run() {
-			worker.setIndex(1);
-		}
-		
-		
-	}
 }
